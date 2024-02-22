@@ -1,6 +1,6 @@
 ﻿import re
 import base64
-from typing import Iterable
+from typing import Iterable, Iterator
 from urllib.request import urlopen
 
 from navigation.element import Element
@@ -110,3 +110,7 @@ class Question:
 
     def in_rightanswer(self, text: str) -> bool:
         return bool(re.search(rf"\b{text}[\,\b]?", self.rightanswer))
+
+    @property
+    def answer(self) -> Iterator:
+        pass

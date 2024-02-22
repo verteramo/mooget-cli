@@ -42,29 +42,27 @@ class ChoiceElement:
 
 class MultichoiceQuestion(Question):
     @property
-    def choices(self) -> Iterable[Choice]:
+    def choices(self) -> Iterable[tuple[str, bool | None]]:
         for choice in [
             ChoiceElement(element)
             for element in self.element.elems(value=XPATH_CHOICES)
         ]:
             if self.correct:
-                yield Choice(choice.text, choice.checked)  # , choice.feedback
+                yield choice.text, choice.checked
             elif self.rightanswer:
-                yield Choice(
-                    choice.text, self.text_in_rightanswer(choice.text)
-                )  # , choice.feedback
+                yield choice.text, self.text_in_rightanswer(choice.text)
             else:
-                yield Choice(choice.text, None)  # , choice.feedback
+                yield choice.text, None
 
     @property
-    def answer(self) -> Iterable[Choice]:
+    def answer(self) -> Iterable[tuple[str, bool | None]]:
         # Infer single choice correctnes
         if self.element.tag("input").type == RADIO and any(
             filter(lambda choice: choice, self.choices)
         ):
             # Set the rest as incorrect
             yield from [
-                Choice(text, False if value is None else value)  # , feedback)
+                (text, False if value is None else value)
                 for text, value in self.choices
             ]
         else:

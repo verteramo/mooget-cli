@@ -84,19 +84,3 @@ class AttemptPage(Page):
                     yield MatchQuestion(element)
                 # case QuestionType.DragAndDropWordToString:
                 #     yield DragAndDropWordToStringQuestion(element)
-            question = Question(element)
-            if question.type != QuestionType.Description:
-                print(
-                    json.dumps(
-                        {
-                            "type": question.type,
-                            "text": question.text,
-                            "number": question.number,
-                            "generalfeedback": question.generalfeedback,
-                            "specificfeedback": question.specificfeedback,
-                            "numpartscorrect": question.numpartscorrect,
-                            "rightanswer": question.rightanswer,
-                            "correct": question.correct,
-                        }, indent=2
-                    )
-                )

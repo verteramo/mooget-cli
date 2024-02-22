@@ -8,7 +8,7 @@ from .browser import Browser
 
 class Driver:
     def __init__(self, browser: Browser, headless: bool = False) -> None:
-        options = browser.get_options()
+        options = browser.create_options()
 
         if headless:
             options.add_argument("--headless")
@@ -19,7 +19,7 @@ class Driver:
         if browser == Browser.Chrome or browser == Browser.Edge:
             options.add_experimental_option("excludeSwitches", ["enable-logging"])
 
-        self.driver = browser.get_driver(options)
+        self.driver = browser.create_driver(options)
 
     def __enter__(self) -> Driver:
         return self

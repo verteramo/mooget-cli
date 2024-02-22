@@ -9,7 +9,7 @@ class Browser(StrEnum):
     Edge = "Edge"
     Firefox = "Firefox"
 
-    def get_options(self) -> ArgOptions:
+    def create_options(self) -> ArgOptions:
         match self:
             case self.Chrome:
                 return webdriver.ChromeOptions()
@@ -18,7 +18,7 @@ class Browser(StrEnum):
             case self.Firefox:
                 return webdriver.FirefoxOptions()
 
-    def get_driver(self, options: ArgOptions) -> WebDriver:
+    def create_driver(self, options: ArgOptions) -> WebDriver:
         match self:
             case self.Chrome:
                 return webdriver.Chrome(options=options)

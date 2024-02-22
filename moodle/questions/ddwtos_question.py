@@ -1,4 +1,4 @@
-from typing import Iterable
+from typing import Iterable, Iterator
 from moodle.constants import XPATH_TEXT
 from .question import Question
 
@@ -7,7 +7,7 @@ XPATH_DDWTOS_WORDS = ".//div[starts-with(@class, 'answercontainer')]//span"
 
 class DragAndDropWordToStringQuestion(Question):
     @property
-    def choices(self) -> list[str]:
+    def choices(self) -> Iterator[str]:
         yield from [
             element.innerHTML
             for element in self.element.elems(value=XPATH_DDWTOS_WORDS)
