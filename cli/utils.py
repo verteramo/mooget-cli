@@ -28,6 +28,6 @@ def scrap(attempt_page: AttemptPage) -> dict[str, list]:
 
     with typer.progressbar(attempt_questions) as progress:
         for question in progress:
-            questions.append({question.text: list(question.answer)})
+                questions.append((question.text, list(question.answer)))
 
     return {attempt_name: questions}
