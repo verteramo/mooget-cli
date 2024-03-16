@@ -50,7 +50,7 @@ class MultichoiceQuestion(Question):
             if self.correct:
                 yield choice.text, choice.checked
             elif self.rightanswer:
-                yield choice.text, self.text_in_rightanswer(choice.text)
+                yield choice.text, self.in_rightanswer(choice.text)
             else:
                 yield choice.text, None
 

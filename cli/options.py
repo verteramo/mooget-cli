@@ -1,3 +1,4 @@
+import sys
 import typer
 from typing import Annotated
 from navigation import Browser
@@ -8,33 +9,34 @@ from navigation import Browser
 
 UriArgument = Annotated[str, typer.Argument(help="URI")]
 
+
+InputFileArgument = Annotated[
+    typer.FileText,
+    typer.Argument(help="Input file", show_default=False),
+]
+
 ################################################################################
 ### Options ####################################################################
 ################################################################################
 
 BrowserOption = Annotated[
     Browser,
-    typer.Option("-b", "--browser", help="Browser to use"),
+    typer.Option("-b", "--browser", help="Browser"),
 ]
 
 HeadlessOption = Annotated[
     bool,
-    typer.Option("-h", "--headless", help="Run browser in headless mode"),
-]
-
-AuthFileOption = Annotated[
-    typer.FileText,
-    typer.Option("--auth-file", help="File with authentication fields and credentials"),
+    typer.Option("-h", "--headless", help="Headless mode"),
 ]
 
 AuthFieldsOption = Annotated[
     bool,
-    typer.Option("--auth-fields", help="Change authentication default fields"),
+    typer.Option("--auth-fields", help="Modify authentication fields"),
 ]
 
 AuthCredentialsOption = Annotated[
     bool,
-    typer.Option("-a", "--auth-credentials", help="Provide authentication credentials"),
+    typer.Option("-a", "--auth-credentials", help="Use credentials to authenticate"),
 ]
 
 OutputFileOption = Annotated[
@@ -43,6 +45,5 @@ OutputFileOption = Annotated[
 ]
 
 IndentOption = Annotated[
-    int,
-    typer.Option("-i", "--indent", help="Indentation level"),
+    int, typer.Option("-t", "--indent", help="Indentation level", min=0)
 ]
