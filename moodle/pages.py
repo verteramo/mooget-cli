@@ -5,7 +5,7 @@ from typing import Iterable
 import jsonpickle
 from moodle.questions.multichoice_question import MultichoiceQuestion
 
-from navigation.page import Page
+from nav.page import Page
 from moodle.constants import (
     XPATH_ATTEMPT_NAME,
     XPATH_ATTEMPT_QUESTIONS,

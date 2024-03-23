@@ -8,7 +8,7 @@ from moodle.constants import (
     XPATH_SPECIFICFEEDBACK,
 )
 from .question import Question
-from navigation.element import Element
+from nav.element import Element
 
 
 class Choice:

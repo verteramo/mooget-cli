@@ -1,14 +1,16 @@
 import sys
 import typer
 from typing import Annotated
-from navigation import Browser
+from nav import Browser
 
 ################################################################################
 ### Arguments ##################################################################
 ################################################################################
 
-UriArgument = Annotated[str, typer.Argument(help="URI")]
-
+UriArgument = Annotated[
+    str,
+    typer.Argument(help="URI"),
+]
 
 InputFileArgument = Annotated[
     typer.FileText,
@@ -31,7 +33,7 @@ HeadlessOption = Annotated[
 
 AuthFieldsOption = Annotated[
     bool,
-    typer.Option("--auth-fields", help="Modify authentication fields"),
+    typer.Option("-f", "--auth-fields", help="Modify authentication fields"),
 ]
 
 AuthCredentialsOption = Annotated[
@@ -45,5 +47,11 @@ OutputFileOption = Annotated[
 ]
 
 IndentOption = Annotated[
-    int, typer.Option("-t", "--indent", help="Indentation level", min=0)
+    int,
+    typer.Option("-t", "--indent", help="Indentation level", min=0),
+]
+
+CookiesOption = Annotated[
+    dict,
+    typer.Option("-c", "--cookies", help="Cookies", show_default=False),
 ]

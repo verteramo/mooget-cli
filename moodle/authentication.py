@@ -3,7 +3,7 @@ import sys
 import typer
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
-from navigation.driver import Driver
+from nav.driver import Driver
 from moodle.constants import (
     FORMAT_ERROR,
     LOGIN_DEFAULT_USERNAME_ID,

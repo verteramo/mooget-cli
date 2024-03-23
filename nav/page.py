@@ -1,7 +1,7 @@
 from typing import Iterable
 from selenium.webdriver.common.by import By
-from navigation.driver import Driver
-from navigation.element import Element
+from nav.driver import Driver
+from nav.element import Element
 
 
 class Page:

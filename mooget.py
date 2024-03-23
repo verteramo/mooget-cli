@@ -1,11 +1,8 @@
 import sys
 import typer
 from moodle.pages import OverviewPage, QuizPage, ReportPage, ReportType
-from navigation import Driver
-from moodle import (
-    AttemptPage,
-    Authentication,
-)
+from nav import Driver
+from moodle import AttemptPage, Authentication
 from cli.options import *
 from cli.utils import *
 
@@ -19,6 +16,7 @@ def attempt(
     indent: IndentOption = 2,
     browser: BrowserOption = "Chrome",
     headless: HeadlessOption = False,
+    cookies: CookiesOption = {},
     auth_fields: AuthFieldsOption = False,
     auth_credentials: AuthCredentialsOption = False,
 ):
@@ -43,6 +41,7 @@ def crawl(
     indent: IndentOption = 2,
     browser: BrowserOption = "Chrome",
     headless: HeadlessOption = False,
+    cookies: CookiesOption = {},
     auth_fields: AuthFieldsOption = False,
     auth_credentials: AuthCredentialsOption = False,
 ):

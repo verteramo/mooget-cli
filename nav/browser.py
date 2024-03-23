@@ -10,6 +10,9 @@ class Browser(StrEnum):
     Firefox = "Firefox"
 
     def create_options(self) -> ArgOptions:
+        """
+        Create the options for the browser.
+        """
         match self:
             case self.Chrome:
                 return webdriver.ChromeOptions()
@@ -19,6 +22,9 @@ class Browser(StrEnum):
                 return webdriver.FirefoxOptions()
 
     def create_driver(self, options: ArgOptions) -> WebDriver:
+        """
+        Create the driver for the browser.
+        """
         match self:
             case self.Chrome:
                 return webdriver.Chrome(options=options)

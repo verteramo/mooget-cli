@@ -3,7 +3,7 @@ import base64
 from typing import Iterable, Iterator
 from urllib.request import urlopen
 
-from navigation.element import Element
+from nav.element import Element
 from .question_type import QuestionType
 from moodle.constants import (
     CORRECT,

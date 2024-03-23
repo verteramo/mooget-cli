@@ -1,4 +1,4 @@
-from navigation.element import Element
+from nav.element import Element
 from moodle.constants import (
     REGEX_CHOICE,
     TRUE,
