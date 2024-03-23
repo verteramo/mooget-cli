@@ -8,10 +8,10 @@ pip install -r requirements
 ```
 
 Subcomandos:
-!(Subcomandos)[Pasted image 20240322164048.png]
+!(Subcomandos)[img/Pasted image 20240322164048.png]
 ###### Attempt (Intento)
 Descarga de un intento
-!(Intentos)[Pasted image 20240322164304.png]
+!(Intentos)[img/Pasted image 20240322164304.png]
 - -o: Enviar la salida a un fichero.
 - -t: Nivel de indentación del JSON resultante.
 - -b: Navegador a utilizar.
